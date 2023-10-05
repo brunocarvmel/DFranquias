@@ -27,8 +27,8 @@ class GadoController extends Controller
     public function store(Request $request)
     {
         try {
-            $obj = Gado::create([
-                'codigo'=>231,
+            $gado = Gado::create([
+                'codigo'=>5345212,
                 'qtd_leite'=>12.3,
                 'qtd_racao'=>12.3,
                 'peso'=>12.3,
@@ -37,7 +37,7 @@ class GadoController extends Controller
 
             return response()->json([
                 'success' => true,
-                'data' => $obj
+                'data' => $gado
             ]);
 
         } catch (\Throwable $th) {
@@ -73,9 +73,21 @@ class GadoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        Gado::where('id', $id)->update(
+        $gado = Gado::find($id);
+
+        if (empty($gado)) {
+            return response()->json([
+                'message'=>'Record not found.',
+            ], 404);
+        }
+
+        $gado->update(
             $request->all()
         );
+        return response()->json([
+            'succes' => true,
+            'data' => $gado
+        ]);
 
     }
 
@@ -83,8 +95,18 @@ class GadoController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
-    {
-        Gado::destroy($id);
+    {   
+        $gado = Gado::find($id);
+        if (empty($gado)) {
+            return response()->json([
+                'message'=>'Record not found.',
+            ], 404);
+        }
 
+        $gado->delete();
+        return response()->json([
+            'success'=>true,
+            'data'=>$gado
+        ]);
     }
 }
