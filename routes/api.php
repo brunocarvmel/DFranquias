@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GadoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('/gados', [GadoController::class,'index']);
+Route::get('/gados/{id}', [GadoController::class,'show']);
+Route::post('/gados', [GadoController::class,'store']);
+Route::put('/gados/{id}', [GadoController::class,'update']);
+Route::delete('/gados/{id}', [GadoController::class,'destroy']);
