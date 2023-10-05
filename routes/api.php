@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbateController;
 use App\Http\Controllers\GadoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +25,11 @@ Route::get('/gados/{id}', [GadoController::class,'show']);
 Route::post('/gados', [GadoController::class,'store']);
 Route::put('/gados/{id}', [GadoController::class,'update']);
 Route::delete('/gados/{id}', [GadoController::class,'destroy']);
+
+Route::get('/abates', [AbateController::class,'index']);
+Route::get('/abates/{id}', [AbateController::class,'show']);
+Route::post('/abates', [AbateController::class,'store']);
+Route::delete('/abates/{id}', [AbateController::class,'destroy']);
+
+
+
