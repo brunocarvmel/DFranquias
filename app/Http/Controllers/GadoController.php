@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Abate;
-use App\Models\Gado;
 use App\Services\GadoService;
 use Illuminate\Http\Request;
 
@@ -18,34 +16,26 @@ class GadoController extends Controller
 
     public function index()
     {
-        return response()->json(
-            $this->gadoService->index()
-        );
+        return $this->gadoService->index();
     }
 
     public function store(Request $request)
     {
-       return response()->json(
-        $this->gadoService->store($request)
-       );
+        return $this->gadoService->store($request);
     }
 
     public function show(string $id)
-    {   
-        return response()->json(
-            $this->gadoService->show($id)
-        );
+    {     
+        return $this->gadoService->show($id);
     }
 
     public function update(Request $request, string $id)
     {
-        return response()->json(
-            $this->gadoService->update($request, $id)
-        );
+        return $this->gadoService->update($request, $id);
     }
 
     public function destroy(string $id)
     {   
-            return $this->gadoService->destroy($id);
+        return $this->gadoService->destroy($id);
     }
 }

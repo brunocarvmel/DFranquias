@@ -7,7 +7,9 @@ use App\Models\Gado;
 class GadoService extends Service {
 
     public function index(){
-        return Gado::all();
+        return response()->json(
+            Gado::all()
+        );
     }
 
     public function store($request){
@@ -16,10 +18,10 @@ class GadoService extends Service {
                 $request->all()
             );
 
-            return [
+            return response()->json([
                 'success'=>true,
                 'data'=>$gado
-            ];
+            ]);
 
         } catch (\Throwable $th) {
             return response()->json([
