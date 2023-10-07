@@ -20,4 +20,11 @@ class Gado extends Model
         'peso',
         'nascimento'
     ];
+
+    public function abate()
+    {
+        return $this->hasOne(Abate::class, 'id_gado', 'id');
+    }
+
+
 }

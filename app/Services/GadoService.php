@@ -8,11 +8,12 @@ class GadoService extends Service {
 
     public function index(){
         return response()->json(
-            Gado::all()
+            Gado::with('abate')->get()
         );
     }
 
     public function store($request){
+        // return response()->json($request->all());
         try {
             $gado = Gado::create(
                 $request->all()
@@ -26,7 +27,7 @@ class GadoService extends Service {
         } catch (\Throwable $th) {
             return response()->json([
                 'success' => false,
-                'message' => 'Não foi possível salvar o gado! Verifique as informações e tente novamente',
+                'message' => $th->getMessage(),
                 'data' => []
             ], 404);
         }
@@ -59,7 +60,7 @@ class GadoService extends Service {
             $request->all()
         );
         return response()->json([
-            'succes' => true,
+            'success' => true,
             'data' => $gado
         ]);
     }
