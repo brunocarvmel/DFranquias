@@ -1,3 +1,4 @@
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -7,60 +8,130 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<br/>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<h1 align="center">DFranquias</h1>
+<h4 align="center">Um CRUD para o cadastramento de gado</h4>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Sobre o projeto
+Este projeto tem como finalidade atestar meus conhecimentos nos seguintes pontos:
+- Desenvolvimento de aplicações CRUD utilizando LARAVEL
+- Práticas com ELoquent
+- Práticas com MySQL
+- Práticas com PHP
+- Práticas com API Restfull
+  
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Por que este projeto?
+-Este projeto me foi introduzido a partir de um processo seletivo na qual me disponibilizei para participar e faz parte do meu portfólio pessoal, uma maneira de comprovar meus conhecimentos em PHP e Laravel.
+- Projetos CRUD's são aplicações que utilizam as quatro operações básicas de armazenamento em banco de dados e fazem parte da rotina de um desenvolvedor back-end, então esse projeto serviu como uma simulação da rotina real de um desenvolvedor back-end atuando com PHP.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Sobre a modelagem do Banco de Dados
+- O desafio consistia na construção de uma aplicação CRUD utilizando Laravel.
+- Para o desafio foram criadas as seguintes tabelas:
+	- gados
+	- abates
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Classificacao
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<h4 align="center">Gados</h4>
 
-### Premium Partners
+php
+Method: GET
+Url: localhost/api/gados/
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- Para listar todos os gados
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+php
+Method: GET
+Url: localhost/api/gados/{id}
 
-## Code of Conduct
+- Para listar um gado em específico
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+php
+Method: POST
+Url: localhost/api/gados
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- Para Adicionar um novo gado
+- Parameters:
+	'codigo' (interger)
+	'qtd_leite' (decimal)
+	'qtd_racao' (decimal)
+	'peso' (decimal)
+	'nascimento' (date)
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+php
+Method: PUT
+Url: localhost/api/gados/{id}
+
+- Para Atualizar um gado
+- Parameters:
+	'codigo' (interger)
+	'qtd_leite' (decimal)
+	'qtd_racao' (decimal)
+	'peso' (decimal)
+	'nascimento' (date)
+
+
+php
+Method: DELETE
+Url: localhost/api/gados/{id}
+
+<h4 align="center">Abates</h4>
+php
+Method: GET
+Url: localhost/api/abates
+
+- Para listar todos os abates
+
+
+php
+Method: GET
+Url: localhost/api/abates/{id}
+
+- Para listar um abate em específico
+
+
+php
+Method: POST
+Url: localhost/api/abates
+
+- Para Adicionar um novo abate
+- Parameters:
+	'id_gado' (interger)
+
+php
+Method: DELETE
+Url: localhost/api/abates/{id}
+
+## Setup
+
+Para a configuração do projeto no seu ambiente local, algumas etapas precisam ser seguidas:
+
+1. De o comando git clone deste [repositório](https://github.com/brunocarvmel/DFranquias/) para que você possa rodar.
+	 
+    git clone https://github.com/brunocarvmel/DFranquias/
+
+2. Tenha um servidor Apache na sua máquina, pode ser o XAMPP, WampServer, Laragon ou Docker.
+
+3. Tenha uma instância do MySQL na sua máquina.
+4. Tenha o Composer instalado.
+5. Acesse a raiz do projeto e rode o comando "composer install".
+6. Crie um banco de dados com o nome "dfranquias".
+7. Rode o comando "php artisan migrate".
+8. E por fim, rode com o comando "php artisan serve".
+
+
+## Dependências e suas versões
+- PHP 7.4
+- Composer
+- Postman
+- Laravel 10x
+
+
